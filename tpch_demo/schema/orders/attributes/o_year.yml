@@ -1,0 +1,9 @@
+type: calculated_attribute
+entity: orders
+name: o_year
+owner: david@honeydew.ai
+description: ''
+labels: []
+sql: |
+  extract(year from orders.o_orderdate)
+datatype: number

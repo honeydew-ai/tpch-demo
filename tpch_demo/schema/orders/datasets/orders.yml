@@ -1,0 +1,37 @@
+type: dataset
+entity: orders
+name: ORDERS
+sql: |
+  SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.ORDERS
+dataset_type: table
+owner: david@honeydew.ai
+description: |+
+labels: []
+attributes:
+  - column: O_CLERK
+    name: O_CLERK
+    datatype: string
+  - column: O_COMMENT
+    name: O_COMMENT
+    datatype: string
+  - column: O_CUSTKEY
+    name: O_CUSTKEY
+    datatype: number
+  - column: O_ORDERDATE
+    name: O_ORDERDATE
+    datatype: date
+  - column: O_ORDERKEY
+    name: O_ORDERKEY
+    datatype: number
+  - column: O_ORDERPRIORITY
+    name: O_ORDERPRIORITY
+    datatype: string
+  - column: O_ORDERSTATUS
+    name: O_ORDERSTATUS
+    datatype: string
+  - column: O_SHIPPRIORITY
+    name: O_SHIPPRIORITY
+    datatype: number
+  - column: O_TOTALPRICE
+    name: O_TOTALPRICE
+    datatype: number

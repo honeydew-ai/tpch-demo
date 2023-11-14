@@ -1,0 +1,34 @@
+type: perspective
+name: tpch_q22
+owner: david@honeydew.ai
+description: >-
+  Global Sales Opportunity Query (Q22) 
+   The Global Sales Opportunity Query identifies geographies where there are customers who may be likely to make a purchase.
+
+   Business Question
+  This query counts how many customers within a specific range of country codes
+  have not placed orders for 7 years but who have a greater than average
+  “positive” account balance. It also reflects the magnitude of that balance.
+  Country code is defined as the first two characters of c_phone.
+labels: []
+attributes:
+  - |
+    customer.cntrycode
+metrics:
+  - |
+    customer.count
+  - |
+    customer.totaacctbal
+filters:
+  - |
+    customer.customer_orders = 0
+  - |
+    array_contains(customer.cntrycode::number, parse_json($cntry_codes))
+  - |
+    customer.c_acctbal > customer.avg_positive_acct_balance
+tests: []
+parameters:
+  - name: cntry_codes
+    value: >-
+      (SELECT to_json(array_agg(x)) FROM VALUES
+      (13),(31),(23),(29),(30),(18),(17) t(x))

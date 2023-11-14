@@ -1,0 +1,8 @@
+type: calculated_attribute
+entity: customer
+name: avg_positive_acct_balance
+owner: david@honeydew.ai
+description: ''
+labels: []
+sql: AVG(customer.c_acctbal) GROUP BY () FILTER (WHERE customer.c_acctbal > 0.0)
+datatype: number

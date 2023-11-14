@@ -1,0 +1,10 @@
+type: calculated_attribute
+entity: customer
+name: cntrycode
+owner: david@honeydew.ai
+description: |
+  From TPC-H Q22
+labels: []
+sql: |
+  substr(customer.c_phone, 1, 2)
+datatype: string

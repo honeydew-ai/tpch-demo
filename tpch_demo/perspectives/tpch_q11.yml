@@ -1,0 +1,35 @@
+type: perspective
+name: tpch_q11
+owner: david@honeydew.ai
+description: >-
+  Important Stock Identification Query (Q11)
+
+  This query finds the most important subset of suppliers' stock in a given
+  nation
+
+
+  Business Question
+
+  The Important Stock Identification Query finds, from scanning the available
+  stock of suppliers in a given nation, all the parts that represent a
+  significant percentage of the total value of all available parts. The query
+  displays the part number and the value of those parts in descending order of
+  value.
+labels: []
+attributes:
+  - |
+    partsupp.ps_partkey
+metrics:
+  - |
+    partsupp.value
+filters:
+  - |
+    nation.n_name USING (supplier_nation) = $nation
+  - |
+    partsupp.value > partsupp.value_all_partsupp*$fraction
+tests: []
+parameters:
+  - name: fraction
+    value: '0.0001'
+  - name: nation
+    value: '''GERMANY'''

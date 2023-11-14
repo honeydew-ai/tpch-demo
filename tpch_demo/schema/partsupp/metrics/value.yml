@@ -1,0 +1,9 @@
+type: metric
+entity: partsupp
+name: value
+owner: david@honeydew.ai
+description: |+
+labels: []
+sql: |
+  sum(partsupp.ps_supplycost*partsupp.ps_availqty)
+datatype: number

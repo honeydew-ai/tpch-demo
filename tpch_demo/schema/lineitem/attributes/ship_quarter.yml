@@ -1,0 +1,8 @@
+type: calculated_attribute
+entity: lineitem
+name: ship_quarter
+owner: david@honeydew.ai
+description: ''
+labels: []
+sql: DATE_TRUNC('quarter', lineitem.l_shipdate)
+datatype: string

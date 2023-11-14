@@ -1,0 +1,33 @@
+type: perspective
+name: tpch_q04
+owner: david@honeydew.ai
+description: >-
+  Based on Order Priority Checking Query (Q4)
+
+  This query determines how well the order priority system is working and gives
+  an assessment of customer satisfaction.
+
+
+  Business Question
+
+  The Order Priority Checking Query counts the number of orders ordered in a
+  given quarter of a given year in which at least one lineitem was received by
+  the customer later than its committed date. The query lists the count of such
+  orders for each order priority sorted in ascending priority order.
+labels: []
+attributes:
+  - |
+    orders.o_orderpriority
+metrics:
+  - |
+    orders.count
+filters:
+  - |
+    orders.has_late_deliveries
+  - >
+    orders.o_orderdate >= $date and orders.o_orderdate < dateadd('month', 3,
+    $date)
+tests: []
+parameters:
+  - name: date
+    value: DATE('1993-07-01')

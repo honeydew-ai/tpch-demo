@@ -1,0 +1,37 @@
+type: dataset
+entity: part
+name: PART
+sql: |
+  SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.PART
+dataset_type: table
+owner: david@honeydew.ai
+description: |+
+labels: []
+attributes:
+  - column: P_BRAND
+    name: P_BRAND
+    datatype: string
+  - column: P_COMMENT
+    name: P_COMMENT
+    datatype: string
+  - column: P_CONTAINER
+    name: P_CONTAINER
+    datatype: string
+  - column: P_MFGR
+    name: P_MFGR
+    datatype: string
+  - column: P_NAME
+    name: P_NAME
+    datatype: string
+  - column: P_PARTKEY
+    name: P_PARTKEY
+    datatype: number
+  - column: P_RETAILPRICE
+    name: P_RETAILPRICE
+    datatype: number
+  - column: P_SIZE
+    name: P_SIZE
+    datatype: number
+  - column: P_TYPE
+    name: P_TYPE
+    datatype: string

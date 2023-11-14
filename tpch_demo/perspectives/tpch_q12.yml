@@ -1,0 +1,51 @@
+type: perspective
+name: tpch_q12
+owner: david@honeydew.ai
+attributes:
+  - |
+    lineitem.l_shipmode
+metrics:
+  - |
+    lineitem.high_line_count
+  - |
+    lineitem.low_line_count
+filters:
+  - |
+    lineitem.l_receiptdate BETWEEN $date and dateadd('year', 1, $date)
+  - |
+    lineitem.l_shipdate < lineitem.l_commitdate
+  - |
+    lineitem.l_commitdate < lineitem.l_receiptdate
+  - |
+    lineitem.l_shipmode IN ($shipmode1, $shipmode2)
+tests: []
+parameters:
+  - name: shipmode1
+    value: '''MAIL'''
+    description: ''
+  - name: shipmode2
+    value: '''SHIP'''
+    description: ''
+  - name: date
+    value: DATE('1994-01-01')
+    description: ''
+description: >-
+  Shipping Modes and Order Priority Query (Q12)
+
+  This query determines whether selecting less expensive modes of shipping is
+  negatively affecting the critical-priority orders by causing more parts to be
+  received by customers after the committed date.
+
+
+  Business Question
+
+  The Shipping Modes and Order Priority Query counts, by ship mode, for
+  lineitems actually received by customers in a given year, the number of
+  lineitems belonging to orders for which the l_receiptdate exceeds the
+  l_commitdate for
+
+  two different specified ship modes. Only lineitems that were actually shipped
+  before the l_commitdate are considered. The late lineitems are partitioned
+  into two groups, those with priority URGENT or HIGH, and those with a
+
+  priority other than URGENT or HIGH.

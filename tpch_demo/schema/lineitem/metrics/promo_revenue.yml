@@ -1,0 +1,11 @@
+type: metric
+entity: lineitem
+name: promo_revenue
+owner: david@honeydew.ai
+description: |
+  Based on TPC-H Q14
+labels: []
+sql: >
+  100.0* lineitem.revenue FILTER (WHERE part.p_type LIKE 'PROMO%') /
+  lineitem.revenue
+datatype: number

@@ -1,0 +1,9 @@
+type: calculated_attribute
+entity: supplier_quarters
+name: quarter_revenue
+owner: david@honeydew.ai
+description: ''
+labels: []
+sql: |
+  lineitem.revenue
+datatype: number

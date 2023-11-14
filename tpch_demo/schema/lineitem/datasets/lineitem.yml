@@ -1,0 +1,58 @@
+type: dataset
+entity: lineitem
+name: LINEITEM
+sql: |
+  SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.LINEITEM
+dataset_type: table
+owner: david@honeydew.ai
+description: |+
+labels: []
+attributes:
+  - column: L_COMMENT
+    name: L_COMMENT
+    datatype: string
+  - column: L_COMMITDATE
+    name: L_COMMITDATE
+    datatype: date
+  - column: L_DISCOUNT
+    name: L_DISCOUNT
+    datatype: number
+  - column: L_EXTENDEDPRICE
+    name: L_EXTENDEDPRICE
+    datatype: number
+  - column: L_LINENUMBER
+    name: L_LINENUMBER
+    datatype: number
+  - column: L_LINESTATUS
+    name: L_LINESTATUS
+    datatype: string
+  - column: L_ORDERKEY
+    name: L_ORDERKEY
+    datatype: number
+  - column: L_PARTKEY
+    name: L_PARTKEY
+    datatype: number
+  - column: L_QUANTITY
+    name: L_QUANTITY
+    datatype: number
+  - column: L_RECEIPTDATE
+    name: L_RECEIPTDATE
+    datatype: date
+  - column: L_RETURNFLAG
+    name: L_RETURNFLAG
+    datatype: string
+  - column: L_SHIPDATE
+    name: L_SHIPDATE
+    datatype: date
+  - column: L_SHIPINSTRUCT
+    name: L_SHIPINSTRUCT
+    datatype: string
+  - column: L_SHIPMODE
+    name: L_SHIPMODE
+    datatype: string
+  - column: L_SUPPKEY
+    name: L_SUPPKEY
+    datatype: number
+  - column: L_TAX
+    name: L_TAX
+    datatype: number

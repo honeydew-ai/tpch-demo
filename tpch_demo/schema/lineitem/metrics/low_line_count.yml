@@ -1,0 +1,12 @@
+type: metric
+entity: lineitem
+name: low_line_count
+owner: david@honeydew.ai
+description: >-
+  Based on TPC-H Q12. Notice the expression crosses entities - filtering by
+  orders while counting at a lineitem granularity
+labels: []
+sql: >
+  lineitem.count FILTER (WHERE orders.o_orderpriority <> '1-URGENT' and
+  orders.o_orderpriority <> '2-HIGH')
+datatype: number

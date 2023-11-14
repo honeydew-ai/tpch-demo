@@ -1,0 +1,46 @@
+type: perspective
+name: tpch_q07
+owner: david@honeydew.ai
+description: >-
+  Volume Shipping Query (Q7)
+
+  This query determines the value of goods shipped between certain nations to
+  help in the re-negotiation of shipping
+
+  contracts.
+
+
+  Business Question
+
+  The Volume Shipping Query finds, for two given nations, the gross discounted
+  revenues derived from lineitems in which parts were shipped from a supplier in
+  either nation to a customer in the other nation during 1995 and 1996. The
+  query lists the supplier nation, the customer nation, the year, and the
+  revenue from shipments that took place in that year. The query orders the
+  answer by Supplier nation, Customer nation, and year (all ascending).
+labels: []
+attributes:
+  - |
+    extract(year from lineitem.l_shipdate) as l_year
+  - |
+    nation.n_name USING (customer_nation) as cust_nation
+  - |
+    nation.n_name USING (supplier_nation) as supp_nation
+metrics:
+  - |
+    lineitem.revenue
+filters:
+  - >
+    (nation.n_name USING (customer_nation) = $nation1 and nation.n_name USING
+    (supplier_nation) = $nation2) or  (nation.n_name USING (customer_nation) =
+    $nation2 and nation.n_name USING (supplier_nation) = $nation1)
+  - |
+    lineitem.l_shipdate between date('1995-01-01') and date('1996-12-31')
+tests: []
+parameters:
+  - name: nation1
+    value: '''FRANCE'''
+    description: ''
+  - name: nation2
+    value: '''GERMANY'''
+    description: ''

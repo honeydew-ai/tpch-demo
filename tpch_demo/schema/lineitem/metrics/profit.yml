@@ -1,0 +1,12 @@
+type: metric
+entity: lineitem
+name: profit
+owner: david@honeydew.ai
+description: >
+  Based on TPCH-Q9 . Note that reused the revenue metric here (the original
+  definition duplicated it)
+labels: []
+sql: |-
+  lineitem.revenue-
+  sum(partsupp.ps_supplycost * lineitem.l_quantity)
+datatype: number

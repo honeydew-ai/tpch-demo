@@ -1,0 +1,9 @@
+type: metric
+entity: supplier
+name: count
+owner: david@honeydew.ai
+description: 'Auto-generated Metric: count of records in the entity'
+labels: []
+sql: |
+  COUNT(*)
+datatype: number

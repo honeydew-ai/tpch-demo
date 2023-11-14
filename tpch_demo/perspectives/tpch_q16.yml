@@ -1,0 +1,51 @@
+type: perspective
+name: tpch_q16
+owner: david@honeydew.ai
+description: >-
+  Parts/Supplier Relationship Query (Q16)
+
+  This query finds out how many suppliers can supply parts with given
+  attributes. It might be used, for example, to
+
+  determine whether there is a sufficient number of suppliers for heavily
+  ordered parts.
+
+
+  Business Question
+
+  The Parts/Supplier Relationship Query counts the number of suppliers who can
+  supply parts that satisfy a particular customer's requirements. The customer
+  is interested in parts of eight different sizes as long as they are not of a
+  given type, not of a given brand, and not from a supplier who has had
+  complaints registered at the Better Business Bureau. Results must be presented
+  in descending count and ascending brand, type, and size.
+labels: []
+attributes:
+  - |
+    part.p_brand
+  - |
+    part.p_size
+  - |
+    part.p_type
+metrics:
+  - |
+    supplier.count
+filters:
+  - |
+    not supplier.has_complaints
+  - |
+    part.p_brand <> $brand
+  - |
+    part.p_type not like $type
+  - |
+    array_contains(part.p_size, parse_json($sizes))
+tests: []
+parameters:
+  - name: brand
+    value: '''Brand#45'''
+  - name: type
+    value: '''MEDIUM POLISHED'''
+  - name: sizes
+    value: >-
+      (SELECT to_json(array_agg(x)) FROM VALUES
+      (49),(14),(23),(45),(19),(3),(36),(9) t(x))

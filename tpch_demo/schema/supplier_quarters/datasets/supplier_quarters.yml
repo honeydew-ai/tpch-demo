@@ -1,0 +1,20 @@
+type: dataset
+entity: supplier_quarters
+name: supplier_quarters
+sql: |
+  lineitem
+dataset_type: entity
+owner: david@honeydew.ai
+description: |
+  a virtual entity representing per quarter supplier granularity
+labels: []
+attributes:
+  - column: l_suppkey
+    name: l_suppkey
+    datatype: number
+  - column: ship_quarter
+    name: ship_quarter
+    datatype: string
+  - column: supplier_quarter_key
+    name: supplier_quarter_key
+    datatype: string

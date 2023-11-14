@@ -1,0 +1,42 @@
+type: perspective
+name: tpch_q03
+owner: david@honeydew.ai
+description: >-
+  Shipping Priority Query (Q3)
+
+  This query retrieves the 10 unshipped orders with the highest value
+
+
+  Business Question
+
+  The Shipping Priority Query retrieves the shipping priority and potential
+  revenue, defined as the sum of l_extendedprice * (1-l_discount), of the orders
+  having the largest revenue among those that had not been shipped as of a given
+  date. Orders are listed in decreasing order of revenue. If more than 10
+  unshipped orders exist, only the 10 orders with the largest revenue are
+  listed.
+attributes:
+  - |
+    orders.o_orderdate
+  - |
+    orders.o_shippriority
+  - |
+    lineitem.l_orderkey
+metrics:
+  - |
+    lineitem.revenue
+filters:
+  - |
+    lineitem.l_shipdate > date($date)
+  - |
+    orders.o_orderdate < date($date)
+  - |
+    customer.c_mktsegment = $segment
+tests: []
+parameters:
+  - name: date
+    value: '''1995-03-15'''
+    description: ''
+  - name: segment
+    value: '''BUILDING'''
+    description: ''

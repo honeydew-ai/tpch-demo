@@ -1,0 +1,14 @@
+type: entity
+name: customer
+owner: david@honeydew.ai
+labels: []
+keys:
+  - C_CUSTKEY
+key_dataset: CUSTOMER
+relations:
+  - target_entity: orders
+    rel_type: one-to-many
+    rel_join_type: left
+    connection:
+      - src_field: C_CUSTKEY
+        target_field: o_custkey

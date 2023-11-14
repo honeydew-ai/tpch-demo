@@ -1,0 +1,9 @@
+type: metric
+entity: lineitem
+name: sum_qty
+owner: david@honeydew.ai
+description: |+
+labels: []
+sql: |
+  sum(lineitem.l_quantity)
+datatype: number

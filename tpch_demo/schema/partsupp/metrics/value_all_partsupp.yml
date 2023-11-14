@@ -1,0 +1,9 @@
+type: metric
+entity: partsupp
+name: value_all_partsupp
+owner: david@honeydew.ai
+description: |+
+labels: []
+sql: |
+  partsupp.value GROUP BY ()
+datatype: number

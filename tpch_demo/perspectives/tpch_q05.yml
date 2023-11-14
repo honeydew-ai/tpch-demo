@@ -1,0 +1,47 @@
+type: perspective
+name: tpch_q05
+owner: david@honeydew.ai
+description: >-
+  Local Supplier Volume Query (Q5) 
+
+  This query lists the revenue volume done through local suppliers.
+
+
+
+  Business Question
+
+  The Local Supplier Volume Query lists for each nation in a region the revenue
+  volume that resulted from lineitem transactions in which the customer ordering
+  parts and the supplier filling them were both within that nation. The query is
+  run in order to determine whether to institute local distribution centers in a
+  given region. The query considers only parts ordered in a given year. The
+  query displays the nations and revenue volume in descending order by revenue.
+  Revenue volume for all qualifying lineitems in a particular nation is defined
+  as sum(l_extendedprice * (1 - l_discount))
+labels: []
+attributes:
+  - |
+    nation.n_name USING (supplier_nation) as n_name
+  - |
+    region.r_name USING (supplier_nation) = $region
+  - >
+    nation.n_nationkey USING (supplier_nation) = nation.n_nationkey USING
+    (customer_nation)
+metrics:
+  - |
+    lineitem.revenue
+filters:
+  - >
+    nation.n_nationkey USING (supplier_nation) = nation.n_nationkey USING
+    (customer_nation)
+  - |
+    region.r_name USING (supplier_nation) = $region
+  - >
+    orders.o_orderdate >= $date and orders.o_orderdate < dateadd('year', 1,
+    $date)
+tests: []
+parameters:
+  - name: region
+    value: '''ASIA'''
+  - name: date
+    value: date('1994-01-01')

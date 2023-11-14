@@ -1,0 +1,9 @@
+type: calculated_attribute
+entity: orders
+name: num_suppliers
+owner: david@honeydew.ai
+description: ''
+labels: []
+sql: |
+  supplier.count
+datatype: number

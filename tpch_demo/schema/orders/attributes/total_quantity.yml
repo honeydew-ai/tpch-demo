@@ -1,0 +1,10 @@
+type: calculated_attribute
+entity: orders
+name: total_quantity
+owner: david@honeydew.ai
+description: |
+  For Q18
+labels: []
+sql: |
+  lineitem.sum_qty
+datatype: number

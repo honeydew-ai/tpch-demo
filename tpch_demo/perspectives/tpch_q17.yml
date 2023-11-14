@@ -1,0 +1,37 @@
+type: perspective
+name: tpch_q17
+owner: david@honeydew.ai
+description: >-
+  Small-Quantity-Order Revenue Query (Q17)  
+
+  This query determines how much average yearly revenue would be lost if orders
+  were no longer filled for small quantities of certain parts. This may reduce
+  overhead expenses by concentrating sales on larger shipments. 
+
+
+  Business Question 
+
+  The Small-Quantity-Order Revenue Query considers parts of a given brand and
+  with a given container type and determines the average lineitem quantity of
+  such parts ordered for all orders (past and pending) in the 7-year database.
+  What would be the average yearly gross (undiscounted) loss in revenue if
+  orders for these parts with a quantity of less than 20% of this average were
+  no longer taken?
+labels: []
+attributes: []
+metrics:
+  - |
+    sum(lineitem.l_extendedprice) / 7.0 as avg_yearly
+filters:
+  - |
+    part.p_brand = $brand
+  - |
+    part.p_container = $container
+  - |
+    lineitem.l_quantity < 0.2*part.avg_qty
+tests: []
+parameters:
+  - name: brand
+    value: '''Brand#23'''
+  - name: container
+    value: '''MED BOX'''

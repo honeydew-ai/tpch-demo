@@ -1,0 +1,10 @@
+type: metric
+entity: lineitem
+name: missed_potential_revenue
+owner: david@honeydew.ai
+description: |
+  potential revenue (For Q6)
+labels: []
+sql: |
+  sum(lineitem.l_extendedprice*lineitem.l_discount)
+datatype: number

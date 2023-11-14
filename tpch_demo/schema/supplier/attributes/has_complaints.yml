@@ -1,0 +1,10 @@
+type: calculated_attribute
+entity: supplier
+name: has_complaints
+owner: david@honeydew.ai
+description: |
+  for TPC-H Q16
+labels: []
+sql: |
+  supplier.s_comment like '%Customer%Complaints%'
+datatype: string

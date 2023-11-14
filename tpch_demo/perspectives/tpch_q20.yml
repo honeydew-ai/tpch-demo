@@ -1,0 +1,39 @@
+type: perspective
+name: tpch_q20
+owner: david@honeydew.ai
+description: >-
+  Potential Part Promotion Query (Q20) 
+
+  The Potential Part Promotion Query identifies suppliers in a particular nation
+  having selected parts that may be candidates for a promotional offer. 
+
+
+  Business Question 
+
+  The Potential Part Promotion query identifies suppliers who have an excess of
+  a given part available; an excess is defined to be more than 50% of the parts
+  like the given part that the supplier shipped in a given year for a given
+  nation. Only parts whose names share a certain naming convention are
+  considered.
+labels: []
+attributes:
+  - |
+    supplier.s_name
+  - |
+    supplier.s_address
+metrics: []
+filters:
+  - |
+    nation.n_name USING (supplier_nation) = $nation
+  - |
+    part.count_with_color_filter > 0
+  - |
+    partsupp.ps_availqty > 0.5*lineitem.sum_qty_filtered_in_year_param
+tests: []
+parameters:
+  - name: color
+    value: '''forest'''
+  - name: date
+    value: date('1994-01-01')
+  - name: nation
+    value: '''CANADA'''

@@ -1,0 +1,25 @@
+type: dataset
+entity: partsupp
+name: PARTSUPP
+sql: |
+  SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.PARTSUPP
+dataset_type: table
+owner: david@honeydew.ai
+description: |+
+labels: []
+attributes:
+  - column: PS_AVAILQTY
+    name: PS_AVAILQTY
+    datatype: number
+  - column: PS_COMMENT
+    name: PS_COMMENT
+    datatype: string
+  - column: PS_PARTKEY
+    name: PS_PARTKEY
+    datatype: number
+  - column: PS_SUPPKEY
+    name: PS_SUPPKEY
+    datatype: number
+  - column: PS_SUPPLYCOST
+    name: PS_SUPPLYCOST
+    datatype: number

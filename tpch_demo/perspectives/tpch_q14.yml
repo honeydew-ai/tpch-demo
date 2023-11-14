@@ -1,0 +1,30 @@
+type: perspective
+name: tpch_q14
+owner: david@honeydew.ai
+description: >-
+  Promotion Effect Query (Q14)
+
+  This query monitors the market response to a promotion such as TV
+  advertisements or a special campaign. 
+
+
+  Business Question 
+
+  The Promotion Effect Query determines what percentage of the revenue in a
+  given year and month was derived from promotional parts. The query considers
+  only parts actually shipped in that month and gives the percentage. Revenue is
+  defined as (l_extendedprice * (1-l_discount)).
+labels: []
+attributes:
+  - |
+    customer.c_acctbal
+metrics:
+  - |
+    lineitem.promo_revenue
+filters:
+  - |
+    lineitem.l_shipdate between $date and dateadd('month', 1, $date)
+tests: []
+parameters:
+  - name: date
+    value: date('1995-09-01')

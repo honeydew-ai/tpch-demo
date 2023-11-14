@@ -1,0 +1,10 @@
+type: calculated_attribute
+entity: partsupp
+name: min_part_supply_cost_in_region
+owner: david@honeydew.ai
+description: ''
+labels: []
+sql: >
+  min(partsupp.ps_supplycost) GROUP BY (partsupp.ps_partkey,
+  partsupp.part_region)
+datatype: number

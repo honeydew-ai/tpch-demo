@@ -1,0 +1,13 @@
+type: entity
+name: orders
+owner: david@honeydew.ai
+labels: []
+keys:
+  - O_ORDERKEY
+key_dataset: ORDERS
+relations:
+  - target_entity: lineitem
+    rel_type: one-to-many
+    connection:
+      - src_field: O_ORDERKEY
+        target_field: l_orderkey

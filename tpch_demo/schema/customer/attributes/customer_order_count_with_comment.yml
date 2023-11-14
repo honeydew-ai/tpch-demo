@@ -1,0 +1,10 @@
+type: calculated_attribute
+entity: customer
+name: customer_order_count_with_comment
+owner: david@honeydew.ai
+description: |+
+labels: []
+sql: >
+  orders.count FILTER (WHERE orders.o_comment not like '%' || $comment_word1 ||
+  '%' || $comment_word2 || '%')
+datatype: string

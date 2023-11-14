@@ -1,0 +1,13 @@
+type: entity
+name: part
+owner: david@honeydew.ai
+labels: []
+keys:
+  - P_PARTKEY
+key_dataset: PART
+relations:
+  - target_entity: partsupp
+    rel_type: one-to-many
+    connection:
+      - src_field: P_PARTKEY
+        target_field: ps_partkey

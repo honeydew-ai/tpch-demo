@@ -1,0 +1,43 @@
+type: perspective
+name: tpch_q08
+owner: david@honeydew.ai
+description: >-
+  National Market Share Query (Q8)
+
+  This query determines how the market share of a given nation within a given
+  region has changed over two years for
+
+  a given part type.
+
+
+
+  Business Question
+
+  The market share for a given nation within a given region is defined as the
+  fraction of the revenue, the sum of [l_extendedprice * (1-l_discount)], from
+  the products of a specified type in that region that was supplied by suppliers
+  from the given nation. The query determines this for the years 1995 and 1996
+  presented in this order.
+labels: []
+attributes:
+  - |
+    orders.o_year
+metrics:
+  - >
+    lineitem.revenue FILTER (WHERE nation.n_name USING (supplier_nation) =
+    $nation) / lineitem.revenue AS mkt_share
+filters:
+  - |
+    orders.o_orderdate between date('1995-01-01') and date ('1996-12-31')
+  - |
+    part.p_type = $type
+  - |
+    region.r_name USING (customer_nation) = $region
+tests: []
+parameters:
+  - name: nation
+    value: '''BRAZIL'''
+  - name: region
+    value: '''AMERICA'''
+  - name: type
+    value: '''ECONOMY ANODIZED STEEL'''

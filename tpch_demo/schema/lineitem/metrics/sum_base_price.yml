@@ -1,0 +1,9 @@
+type: metric
+entity: lineitem
+name: sum_base_price
+owner: david@honeydew.ai
+description: |+
+labels: []
+sql: |
+  sum(lineitem.l_extendedprice)
+datatype: number

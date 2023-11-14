@@ -1,0 +1,9 @@
+type: metric
+entity: part
+name: count_with_color_filter
+owner: david@honeydew.ai
+description: |+
+labels: []
+sql: |
+  part.count FILTER (WHERE part.p_name like $color || '%')
+datatype: number

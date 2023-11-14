@@ -1,0 +1,16 @@
+type: entity
+name: partsupp
+owner: david@honeydew.ai
+labels: []
+keys:
+  - PS_PARTKEY
+  - PS_SUPPKEY
+key_dataset: PARTSUPP
+relations:
+  - target_entity: lineitem
+    rel_type: one-to-many
+    connection:
+      - src_field: PS_PARTKEY
+        target_field: l_partkey
+      - src_field: PS_SUPPKEY
+        target_field: l_suppkey

@@ -1,0 +1,39 @@
+type: perspective
+name: tpch_q18
+owner: david@honeydew.ai
+description: >-
+  Large Volume Customer Query (Q18) 
+  The Large Volume Customer Query ranks customers based on their having placed a
+  large quantity order. Large quantity orders are defined as those orders whose
+  total quantity is above a certain level.
+
+
+  Business Question
+
+  The Large Volume Customer Query finds a list of the top 100 customers who have
+  ever placed large quantity orders.
+
+  The query lists the customer name, customer key, the order key, date and total
+  price and the quantity for the order.
+labels: []
+attributes:
+  - |
+    customer.c_custkey
+  - |
+    customer.c_name
+  - |
+    orders.o_orderdate
+  - |
+    orders.o_orderkey
+  - |
+    orders.o_totalprice
+metrics:
+  - |
+    lineitem.sum_qty
+filters:
+  - |
+    orders.total_quantity > $quantity
+tests: []
+parameters:
+  - name: quantity
+    value: '300'

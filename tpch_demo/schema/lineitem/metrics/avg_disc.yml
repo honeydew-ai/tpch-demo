@@ -1,0 +1,9 @@
+type: metric
+entity: lineitem
+name: avg_disc
+owner: david@honeydew.ai
+description: |+
+labels: []
+sql: |
+  avg(lineitem.l_discount)
+datatype: number

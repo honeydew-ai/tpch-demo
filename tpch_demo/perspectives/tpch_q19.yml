@@ -1,0 +1,60 @@
+type: perspective
+name: tpch_q19
+owner: david@honeydew.ai
+description: >-
+  Discounted Revenue Query (Q19) 
+   The Discounted Revenue Query reports the gross discounted revenue attributed to the sale of selected parts handled in a particular manner. This query is an example of code such as might be produced programmatically by a data mining tool.
+
+  Business Question
+
+  The Discounted Revenue query finds the gross discounted revenue for all orders
+  for three different types of parts
+
+  that were shipped by air and delivered in person. Parts are selected based on
+  the combination of specific brands, a
+
+  list of containers, and a range of size
+labels: []
+attributes: []
+metrics:
+  - |
+    lineitem.revenue
+filters:
+  - |-
+    (part.p_brand = $brand1 
+    and part.p_container in ( 'SM CASE', 'SM BOX', 'SM PACK', 'SM PKG')  
+    and lineitem.l_quantity >= $quantity1 
+    and lineitem.l_quantity <= $quantity1 + 10 
+    and part.p_size between 1 and 5 
+    and lineitem.l_shipmode in ('AIR', 'AIR REG')
+    and lineitem.l_shipinstruct = 'DELIVER IN PERSON')
+    or
+    (part.p_brand = $brand2 
+    and part.p_container in ( 'MED BAD', 'MED BOX', 'MED PKG', 'MED PACK')  
+    and lineitem.l_quantity >= $quantity2 
+    and lineitem.l_quantity <= $quantity2 + 10 
+    and part.p_size between 1 and 10
+    and lineitem.l_shipmode in ('AIR', 'AIR REG')
+    and lineitem.l_shipinstruct = 'DELIVER IN PERSON')
+    or
+    (part.p_brand = $brand3 
+    and part.p_container in ( 'LG CASE', 'LG BOX', 'LG PACK', 'LG PKG')  
+    and lineitem.l_quantity >= $quantity3 
+    and lineitem.l_quantity <= $quantity3 + 10 
+    and part.p_size between 1 and 15
+    and lineitem.l_shipmode in ('AIR', 'AIR REG')
+    and lineitem.l_shipinstruct = 'DELIVER IN PERSON')
+tests: []
+parameters:
+  - name: brand1
+    value: '''Brand#12'''
+  - name: brand2
+    value: '''Brand#23'''
+  - name: brand3
+    value: '''Brand#34'''
+  - name: quantity1
+    value: '1'
+  - name: quantity2
+    value: '10'
+  - name: quantity3
+    value: '20'

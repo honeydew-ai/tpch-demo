@@ -1,0 +1,15 @@
+type: entity
+name: supplier_quarters
+owner: david@honeydew.ai
+description: |
+  a virtual entity representing per quarter supplier granularity
+labels: []
+keys:
+  - supplier_quarter_key
+key_dataset: supplier_quarters
+relations:
+  - target_entity: lineitem
+    rel_type: one-to-many
+    connection:
+      - src_field: supplier_quarter_key
+        target_field: supplier_quarter_key

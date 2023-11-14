@@ -1,0 +1,10 @@
+type: metric
+entity: customer
+name: totaacctbal
+owner: david@honeydew.ai
+description: |
+  Based on Q22
+labels: []
+sql: |
+  sum(customer.c_acctbal)
+datatype: number

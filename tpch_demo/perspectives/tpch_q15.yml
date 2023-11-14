@@ -1,0 +1,40 @@
+type: perspective
+name: tpch_q15
+owner: david@honeydew.ai
+description: >-
+  Top Supplier Query (Q15)
+
+  This query determines the top supplier so it can be rewarded, given more
+  business, or identified for special recognition.
+
+
+  Business Question
+
+  The Top Supplier Query finds the supplier who contributed the most to the
+  overall revenue for parts shipped during a given quarter of a given year. In
+  case of a tie, the query lists all suppliers whose contribution was equal to
+  the maximum, presented in supplier number order.
+labels: []
+attributes:
+  - |
+    supplier.s_suppkey
+  - |
+    supplier.s_name
+  - |
+    supplier.s_address
+  - |
+    supplier.s_phone
+  - |
+    lineitem.ship_quarter
+metrics:
+  - |
+    lineitem.revenue
+filters:
+  - |
+    $date = supplier_quarters.ship_quarter
+  - |
+    lineitem.revenue = supplier_quarters.max_revenue_in_quarter
+tests: []
+parameters:
+  - name: date
+    value: date('1996-01-01')

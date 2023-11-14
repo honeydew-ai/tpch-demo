@@ -1,0 +1,9 @@
+type: metric
+entity: lineitem
+name: count_no_grp
+owner: david@honeydew.ai
+description: |+
+labels: []
+sql: |
+  lineitem.count GROUP BY ()
+datatype: number

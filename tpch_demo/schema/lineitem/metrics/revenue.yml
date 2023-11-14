@@ -1,0 +1,9 @@
+type: metric
+entity: lineitem
+name: revenue
+owner: david@honeydew.ai
+description: revenue, as defined in TPC-H Q3, Q5 and others
+labels: []
+sql: |
+  sum(lineitem.l_extendedprice*(1-lineitem.l_discount))
+datatype: number

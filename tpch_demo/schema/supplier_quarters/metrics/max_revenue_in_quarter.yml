@@ -1,0 +1,10 @@
+type: metric
+entity: supplier_quarters
+name: max_revenue_in_quarter
+owner: david@honeydew.ai
+description: ''
+labels: []
+sql: >-
+  max(supplier_quarters.quarter_revenue) group by
+  (supplier_quarters.ship_quarter)
+datatype: number

@@ -1,0 +1,22 @@
+type: dataset
+entity: nation
+name: NATION
+sql: |
+  SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.NATION
+dataset_type: table
+owner: david@honeydew.ai
+description: |+
+labels: []
+attributes:
+  - column: N_COMMENT
+    name: N_COMMENT
+    datatype: string
+  - column: N_NAME
+    name: N_NAME
+    datatype: string
+  - column: N_NATIONKEY
+    name: N_NATIONKEY
+    datatype: number
+  - column: N_REGIONKEY
+    name: N_REGIONKEY
+    datatype: number

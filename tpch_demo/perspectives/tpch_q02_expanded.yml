@@ -1,0 +1,36 @@
+type: perspective
+name: tpch_q02_expanded
+owner: david@honeydew.ai
+description: >-
+  Based on Q02, but without any parameters - expanding brand, size and region
+  selection to groups
+labels: []
+attributes:
+  - |
+    part.p_mfgr
+  - |
+    part.p_partkey
+  - |
+    supplier.s_acctbal
+  - |
+    supplier.s_address
+  - |
+    supplier.s_comment
+  - |
+    supplier.s_name
+  - |
+    supplier.s_phone
+  - |
+    nation.n_name USING (supplier_nation) as n_name
+  - |
+    region.r_name USING (supplier_nation) as r_name
+  - |
+    part.p_type
+  - |
+    part.p_size
+metrics: []
+filters:
+  - |
+    partsupp.ps_supplycost = partsupp.min_part_supply_cost_in_region
+tests: []
+parameters: []

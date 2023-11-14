@@ -1,0 +1,13 @@
+type: entity
+name: supplier
+owner: david@honeydew.ai
+labels: []
+keys:
+  - S_SUPPKEY
+key_dataset: SUPPLIER
+relations:
+  - target_entity: partsupp
+    rel_type: one-to-many
+    connection:
+      - src_field: S_SUPPKEY
+        target_field: ps_suppkey

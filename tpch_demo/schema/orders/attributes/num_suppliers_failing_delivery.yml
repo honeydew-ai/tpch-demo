@@ -1,0 +1,9 @@
+type: calculated_attribute
+entity: orders
+name: num_suppliers_failing_delivery
+owner: david@honeydew.ai
+description: |+
+labels: []
+sql: |
+  supplier.count FILTER (WHERE lineitem.l_receiptdate > lineitem.l_commitdate)
+datatype: number

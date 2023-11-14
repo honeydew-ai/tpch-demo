@@ -1,0 +1,11 @@
+type: calculated_attribute
+entity: orders
+name: has_late_deliveries
+owner: david@honeydew.ai
+description: |
+  For TPC-H Q4
+labels: []
+sql: >-
+  lineitem.count FILTER (WHERE lineitem.l_commitdate < lineitem.l_receiptdate) >
+  0
+datatype: number

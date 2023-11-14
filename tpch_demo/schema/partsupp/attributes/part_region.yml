@@ -1,0 +1,8 @@
+type: calculated_attribute
+entity: partsupp
+name: part_region
+owner: david@honeydew.ai
+description: ''
+labels: []
+sql: region.r_regionkey USING (supplier_nation)
+datatype: string

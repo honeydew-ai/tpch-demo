@@ -1,0 +1,10 @@
+type: calculated_attribute
+entity: lineitem
+name: charge
+owner: david@honeydew.ai
+description: |
+  charge price, as defined in TPC-H Q1
+labels: []
+sql: |
+  lineitem.l_extendedprice*(1-lineitem.l_discount)*(1+lineitem.l_tax)
+datatype: number

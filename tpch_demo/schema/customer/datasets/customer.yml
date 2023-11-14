@@ -1,0 +1,34 @@
+type: dataset
+entity: customer
+name: CUSTOMER
+sql: |
+  SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.CUSTOMER
+dataset_type: table
+owner: david@honeydew.ai
+description: |+
+labels: []
+attributes:
+  - column: C_ACCTBAL
+    name: C_ACCTBAL
+    datatype: number
+  - column: C_ADDRESS
+    name: C_ADDRESS
+    datatype: string
+  - column: C_COMMENT
+    name: C_COMMENT
+    datatype: string
+  - column: C_CUSTKEY
+    name: C_CUSTKEY
+    datatype: number
+  - column: C_MKTSEGMENT
+    name: C_MKTSEGMENT
+    datatype: string
+  - column: C_NAME
+    name: C_NAME
+    datatype: string
+  - column: C_NATIONKEY
+    name: C_NATIONKEY
+    datatype: number
+  - column: C_PHONE
+    name: C_PHONE
+    datatype: string

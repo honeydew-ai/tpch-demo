@@ -1,0 +1,9 @@
+type: metric
+entity: lineitem
+name: avg_price
+owner: david@honeydew.ai
+description: |+
+labels: []
+sql: |
+  avg(lineitem.l_extendedprice)
+datatype: number

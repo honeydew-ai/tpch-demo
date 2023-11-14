@@ -1,0 +1,44 @@
+type: perspective
+name: tpch_q06
+owner: david@honeydew.ai
+description: >-
+  Forecasting Revenue Change Query (Q6) 
+
+  This query quantifies the amount of revenue increase that would have resulted
+  from eliminating certain companywide discounts in a given percentage range in
+  a given year. Asking this type of "what if" query can be used to look
+
+  for ways to increase revenues.
+
+
+
+  Business Question
+
+  The Forecasting Revenue Change Query considers all the lineitems shipped in a
+  given year with discounts between DISCOUNT-0.01 and DISCOUNT+0.01. The query
+  lists the amount by which the total revenue would have increased if these
+  discounts had been eliminated for lineitems with l_quantity less than
+  quantity. Note that the potential revenue increase is equal to the sum of
+  [l_extendedprice * l_discount] for all lineitems with discounts and quantities
+  in the qualifying range.
+labels: []
+attributes: []
+metrics:
+  - |
+    lineitem.missed_potential_revenue as revenue
+filters:
+  - |
+    lineitem.l_quantity < $quantity
+  - |
+    lineitem.l_discount between $discount - 0.01 and $discount + 0.01
+  - >
+    lineitem.l_shipdate >= $date and lineitem.l_shipdate < dateadd('year', 1,
+    $date)
+tests: []
+parameters:
+  - name: date
+    value: '''1994-01-01''::DATE'
+  - name: discount
+    value: '0.06'
+  - name: quantity
+    value: '24'

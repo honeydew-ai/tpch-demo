@@ -1,0 +1,13 @@
+type: entity
+name: region
+owner: david@honeydew.ai
+labels: []
+keys:
+  - R_REGIONKEY
+key_dataset: region
+relations:
+  - target_entity: nation
+    rel_type: one-to-many
+    connection:
+      - src_field: R_REGIONKEY
+        target_field: n_regionkey

@@ -1,0 +1,31 @@
+type: dataset
+entity: supplier
+name: SUPPLIER
+sql: |
+  SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.SUPPLIER
+dataset_type: table
+owner: david@honeydew.ai
+description: |+
+labels: []
+attributes:
+  - column: S_ACCTBAL
+    name: S_ACCTBAL
+    datatype: number
+  - column: S_ADDRESS
+    name: S_ADDRESS
+    datatype: string
+  - column: S_COMMENT
+    name: S_COMMENT
+    datatype: string
+  - column: S_NAME
+    name: S_NAME
+    datatype: string
+  - column: S_NATIONKEY
+    name: S_NATIONKEY
+    datatype: number
+  - column: S_PHONE
+    name: S_PHONE
+    datatype: string
+  - column: S_SUPPKEY
+    name: S_SUPPKEY
+    datatype: number

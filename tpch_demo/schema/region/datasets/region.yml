@@ -1,0 +1,19 @@
+type: dataset
+entity: region
+name: region
+sql: |
+  SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.REGION
+dataset_type: table
+owner: david@honeydew.ai
+description: |+
+labels: []
+attributes:
+  - column: R_COMMENT
+    name: R_COMMENT
+    datatype: string
+  - column: R_NAME
+    name: R_NAME
+    datatype: string
+  - column: R_REGIONKEY
+    name: R_REGIONKEY
+    datatype: number
