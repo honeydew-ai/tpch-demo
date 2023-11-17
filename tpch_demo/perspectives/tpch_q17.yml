@@ -28,7 +28,7 @@ filters:
   - |
     part.p_container = $container
   - |
-    lineitem.l_quantity < 0.2*part.avg_qty
+    lineitem.is_small_quantity_items
 tests: []
 parameters:
   - name: brand
