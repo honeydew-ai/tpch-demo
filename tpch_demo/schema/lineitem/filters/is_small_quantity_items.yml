@@ -1,0 +1,9 @@
+type: filter
+entity: lineitem
+name: is_small_quantity_items
+owner: david@honeydew.ai
+description: |+
+labels: []
+sql: |
+  lineitem.l_quantity < 0.2*part.avg_qty
+datatype: bool
