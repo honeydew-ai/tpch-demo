@@ -1,0 +1,13 @@
+type: entity
+name: date
+owner: david@honeydew.ai
+labels: []
+keys:
+  - DATE
+key_dataset: date
+relations:
+  - target_entity: orders
+    rel_type: one-to-many
+    connection:
+      - src_field: DATE
+        target_field: o_orderdate

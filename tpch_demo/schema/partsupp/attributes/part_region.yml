@@ -4,5 +4,5 @@ name: part_region
 owner: david@honeydew.ai
 description: ''
 labels: []
-sql: region.r_regionkey USING (supplier_nation)
+sql: region.r_regionkey
 datatype: string

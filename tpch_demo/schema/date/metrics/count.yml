@@ -1,9 +1,9 @@
 type: metric
-entity: orders
+sql: |-
+  COUNT(*)
+entity: date
 name: count
 owner: david@honeydew.ai
-description: |
+description: |-
   Auto-generated Metric: count of records in the entity
-labels: []
-sql: COUNT(orders.o_orderkey)
 datatype: number

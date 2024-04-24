@@ -1,0 +1,8 @@
+type: calculated_attribute
+entity: date
+name: quarter
+owner: david@honeydew.ai
+datatype: date
+labels: []
+sql: |-
+  date_trunc(quarter, date.date)

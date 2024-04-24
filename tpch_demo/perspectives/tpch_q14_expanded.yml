@@ -1,0 +1,14 @@
+type: perspective
+name: tpch_q14_expanded
+owner: david@honeydew.ai
+description: Based on Q14, but without using parameters
+labels: []
+attributes:
+  - |
+    date_trunc('month', lineitem.l_shipdate) as ship_month
+metrics:
+  - |
+    lineitem.promo_revenue
+filters: []
+tests: []
+parameters: []

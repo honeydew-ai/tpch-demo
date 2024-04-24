@@ -2,10 +2,10 @@ type: perspective
 name: tpch_q04
 owner: david@honeydew.ai
 description: >-
-  Based on Order Priority Checking Query (Q4)
+  Order Priority Checking Query (Q4)  
 
   This query determines how well the order priority system is working and gives
-  an assessment of customer satisfaction.
+  an assessment of customer satisfaction. 
 
 
   Business Question

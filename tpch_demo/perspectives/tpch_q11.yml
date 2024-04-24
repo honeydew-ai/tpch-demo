@@ -24,7 +24,7 @@ metrics:
     partsupp.value
 filters:
   - |
-    nation.n_name USING (supplier_nation) = $nation
+    nation.n_name = $nation
   - |
     partsupp.value > partsupp.value_all_partsupp*$fraction
 tests: []

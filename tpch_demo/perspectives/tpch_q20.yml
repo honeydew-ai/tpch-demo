@@ -2,6 +2,7 @@ type: perspective
 name: tpch_q20
 owner: david@honeydew.ai
 description: >-
+
   Potential Part Promotion Query (Q20) 
 
   The Potential Part Promotion Query identifies suppliers in a particular nation
@@ -24,16 +25,20 @@ attributes:
 metrics: []
 filters:
   - |
-    nation.n_name USING (supplier_nation) = $nation
+    nation.n_name = $nation
   - |
-    part.count_with_color_filter > 0
-  - |
-    partsupp.ps_availqty > 0.5*lineitem.sum_qty_filtered_in_year_param
-tests: []
+    part.count FILTER (WHERE part.p_name like $color || '%') > 0
+  - >
+    partsupp.ps_availqty > 0.5*(lineitem.sum_qty FILTER (WHERE
+    lineitem.l_shipdate between $date and dateadd('year',1,$date)))
 parameters:
   - name: color
-    value: '''forest'''
+    value: |-
+      'forest'
   - name: date
-    value: date('1994-01-01')
+    value: |-
+      date('1994-01-01')
   - name: nation
-    value: '''CANADA'''
+    value: |-
+      'CANADA'
+tests: []

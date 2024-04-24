@@ -1,0 +1,8 @@
+type: calculated_attribute
+entity: date
+name: year
+owner: david@honeydew.ai
+datatype: date
+labels: []
+sql: |-
+  date_trunc(year, date.date)

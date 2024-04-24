@@ -21,7 +21,7 @@ description: >-
 labels: []
 attributes:
   - |
-    nation.n_name USING (supplier_nation) as nation
+    nation.n_name
   - |
     orders.o_year
 metrics:

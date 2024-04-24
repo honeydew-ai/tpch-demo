@@ -1,0 +1,16 @@
+type: dataset
+entity: date
+name: date
+sql: |-
+  -- Snowflake SQL for a per-day time spine spanning 10 years from 2016 to 2026
+  SELECT DATEADD(DAY, SEQ4(), '1992-01-01')::DATE AS date
+  FROM TABLE(GENERATOR(ROWCOUNT=>365*7))
+  WHERE DATE <= CURRENT_DATE()
+dataset_type: sql
+owner: david@honeydew.ai
+description: |+
+labels: []
+attributes:
+  - column: DATE
+    name: DATE
+    datatype: date

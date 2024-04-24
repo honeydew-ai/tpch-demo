@@ -2,6 +2,7 @@ type: perspective
 name: tpch_q13
 owner: david@honeydew.ai
 description: >-
+
   Customer Distribution Query (Q13) 
 
   This query seeks relationships between customers and the size of their orders.
@@ -17,17 +18,18 @@ description: >-
   identified in the order comment column by looking for a particular pattern.
 labels: []
 attributes:
-  - |
-    customer.customer_order_count_with_comment
+  - >
+    orders.count GROUP BY (customer.c_custkey) FILTER (WHERE orders.o_comment
+    not like '%' || $comment_word1 || '%' || $comment_word2 || '%')
 metrics:
   - |
     customer.count
 filters: []
-tests: []
 parameters:
   - name: comment_word1
-    value: '''special'''
-    description: ''
+    value: |-
+      'special'
   - name: comment_word2
-    value: '''requests'''
-    description: ''
+    value: |-
+      'requests'
+tests: []

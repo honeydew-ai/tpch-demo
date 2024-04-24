@@ -2,13 +2,15 @@ type: perspective
 name: tpch_q01
 owner: david@honeydew.ai
 description: >-
-  Pricing Summary Report Query (Q1)
+
+  Pricing Summary Report Query (Q1)  
 
   This query reports the amount of business that was billed, shipped, and
   returned.
 
 
   Business Question
+
 
   The Pricing Summary Report Query provides a summary pricing report for all
   lineitems shipped as of a given date. The date is within 60 - 120 days of the
@@ -44,7 +46,8 @@ metrics:
 filters:
   - |
     lineitem.l_shipdate <= date('1998-12-01') - $delta_days
-tests: []
 parameters:
   - name: delta_days
-    value: '90'
+    value: |-
+      90
+tests: []

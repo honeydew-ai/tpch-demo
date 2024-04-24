@@ -21,9 +21,9 @@ attributes:
   - |
     supplier.s_phone
   - |
-    nation.n_name USING (supplier_nation) as n_name
+    nation.n_name 
   - |
-    region.r_name USING (supplier_nation) as r_name
+    region.r_name 
   - |
     part.p_type
   - |

@@ -2,11 +2,11 @@ type: perspective
 name: tpch_q02
 owner: david@honeydew.ai
 description: >-
-  Minimum Cost Supplier Query (Q2)
+  Minimum Cost Supplier Query (Q2)  
    This query finds which supplier should be selected to place an order for a given part in a given region.
 
 
-  Business Question
+  Business Question 
 
   The Minimum Cost Supplier Query finds, in a given region, for each part of a
   certain type and size, the supplier who can supply it at minimum cost. If
@@ -32,17 +32,17 @@ attributes:
   - |
     supplier.s_phone
   - |
-    nation.n_name USING (supplier_nation) as n_name
+    nation.n_name
   - |
-    region.r_name USING (supplier_nation) as r_name
+    region.r_name
   - |
-    region.r_name USING (supplier_nation) = $supplier_region
+    region.r_name = $supplier_region
 metrics: []
 filters:
   - |
     part.p_type LIKE '%' || $part_type
   - |
-    region.r_name USING (supplier_nation) = $supplier_region
+    region.r_name = $supplier_region
   - |
     part.p_size = $part_size
   - |

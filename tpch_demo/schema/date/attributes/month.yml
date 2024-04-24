@@ -1,0 +1,8 @@
+type: calculated_attribute
+entity: date
+name: month
+owner: david@honeydew.ai
+datatype: date
+labels: []
+sql: |-
+  DATE_TRUNC(month, date.date)

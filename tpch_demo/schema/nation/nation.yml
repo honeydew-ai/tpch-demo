@@ -6,15 +6,8 @@ keys:
   - N_NATIONKEY
 key_dataset: NATION
 relations:
-  - target_entity: customer
-    rel_type: one-to-many
-    role: customer_nation
-    connection:
-      - src_field: N_NATIONKEY
-        target_field: c_nationkey
   - target_entity: supplier
     rel_type: one-to-many
-    role: supplier_nation
     connection:
       - src_field: N_NATIONKEY
         target_field: s_nationkey
