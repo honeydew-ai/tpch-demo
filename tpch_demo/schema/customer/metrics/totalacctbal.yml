@@ -1,6 +1,6 @@
 type: metric
 entity: customer
-name: totaacctbal
+name: totalacctbal
 owner: david@honeydew.ai
 description: |
   Based on Q22
