@@ -1,0 +1,8 @@
+type: domain
+name: example
+display_name: Example Domain
+entities:
+  - name: customers
+  - name: order_lines
+  - name: orders
+  - name: parts
